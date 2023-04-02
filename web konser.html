@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembelian Tiket Konser</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="PROJECT UTS\bootstrap-4.5.3-dist\css\bootstrap.css"
+    />
+    <!-- Slick CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-- fitur searcing -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+
+    <link rel="stylesheet" href="DesignWebTiketKonser.css" />
+    <!-- Feather Icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- fontaawesome -->
+    <link
+      rel="stylesheet"
+      href="C:\xampp\htdocs\PROJECT-UTS-main\PROJECT UTS\fontawesome-free-6.3.0-web\css\all.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/9f3246d2c8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header
+      class="header sticky-top"
+      style="
+        padding: 0px 0;
+        background-color: #2d2b2b;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+      "
+    >
+      <nav class="navbar navbar-expand-lg navbar-light navbar-sm">
+        <a class="navbar-brand" href="web konser.html">
+          <img
+            src="img/Logo RK Concert Paling Bagus.png"
+            alt="RK Concert"
+            style="display: auto; width: 120px; border-radius: 50%"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="web konser.html" style="color: white"
+                >BERANDA <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="konser.html" style="color: white"
+                >KONSER</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tentang kami.html" style="color: white"
+                >TENTANG KAMI</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" style="color: white"
+                >KONTAK KAMI</a
+              >
+            </li>
+          </ul>
+          <form class="form-inline" style="padding-bottom: 1rem">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Cari konser"
+              style="width: 250px"
+              id="search-item"
+              onkeyup="search()"
+            />
+            <input
+              type="submit"
+              id="mybtn"
+              value="cari"
+              class="btn btn-outline-secondary"
+              onclick="search()"
+            />
+          </form>
+          <button
+            type="button"
+            class="btnLogin-popup btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModalLong"
+          >
+            🔒 | Login
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- LOGINREGISTER Modal - START -->
+    <div
+      class="modal fade"
+      id="exampleModalLong"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLongTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="wrapper modal-content">
+          <div class="modal-header">
+            <button class="icon-close" data-dismiss="modal" aria-label="Close">
+              <i class="fa-solid fa-xmark" style="color: black"></i>
+            </button>
+          </div>
+          <div class="form-box login">
+            <h2 style="color: whitesmoke">Login</h2>
+            <form action="#">
+              <div class="input-box">
+                <span class="icon"
+                  ><i class="fa-solid fa-envelope" style="color: white"></i
+                ></span>
+                <input type="email" required style="color: white" />
+                <label style="color: white">Email</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"
+                  ><i class="fa-solid fa-lock" style="color: white"></i
+                ></span>
+                <input type="password" required style="color: white" />
+                <label style="color: white">Password</label>
+              </div>
+              <div class="remember-forgot">
+                <label style="color: white"
+                  ><input type="checkbox" style="color: white" />Remember
+                  Me</label
+                >
+                <a href="#" style="color: white">Forgot Password?</a>
+              </div>
+              <button
+                type="submit"
+                class="btnLGN"
+                id="btnLogin"
+                style="background-color: white; color: black"
+              >
+                Login
+              </button>
+              <div class="login-register">
+                <p style="color: white">
+                  Don't have an account?
+                  <a href="#" class="register-link" style="color: white"
+                    >Register</a
+                  >
+                </p>
+              </div>
+            </form>
+          </div>
+          <div class="form-box register">
+            <h2 style="color: whitesmoke">Registration</h2>
+            <form action="#">
+              <div class="input-box">
+                <span class="icon"
+                  ><i class="fa-solid fa-user" style="color: white"></i
+                ></span>
+                <input type="text" required style="color: white" />
+                <label style="color: white">Username</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"
+                  ><i class="fa-solid fa-envelope" style="color: white"></i
+                ></span>
+                <input type="email" required style="color: white" />
+                <label style="color: white">Email</label>
+              </div>
+              <div class="input-box">
+                <span class="icon"
+                  ><i class="fa-solid fa-lock" style="color: white"></i
+                ></span>
+                <input type="password" required style="color: white" />
+                <label style="color: white">Password</label>
+              </div>
+              <div class="remember-forgot">
+                <label style="color: white"
+                  ><input type="checkbox" style="color: white" />I agree to the
+                  terms &amp; conditions</label
+                >
+              </div>
+              <button
+                type="submit"
+                class="btnLGN"
+                id="btnRegister"
+                style="background-color: white; color: black"
+              >
+                Register
+              </button>
+              <div class="login-register">
+                <p style="color: white">
+                  Already have an account?
+                  <a href="#" class="login-link" style="color: white">Login</a>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGINREGISTER Modal - END -->
+
+    <!-- modal -->
+
+    <button
+      type="button"
+      class="btn btn-primary d-none btnmodal"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      launch demo modal
+    </button>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title modaltittle" id="exampleModalLabel"></h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body row">
+            <div class="modalimage col-md-6 col-12"></div>
+            <div class="col-md-6 col-12">
+              <div class="modaldeskripsi"></div>
+              <div class="card-body">
+                <h5 class="card-title">Konser Rock</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  pellentesque purus at bibendum rhoncus. In nec felis blandit,
+                  efficitur neque vel, sodales arcu.
+                </p>
+                <a href="" target="_blank" class="btn-warning btnbeli"
+                  >Beli Tiket</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal -->
+
+    <!-- START BANNER SLIDER -->
+
+    <div class="banner-slider">
+      <div class="slider">
+        <div>
+          <a href="#">
+            <img
+              src="img\Concert Banner 1.png"
+              alt="image 1"
+              style="width: 500; height: 250"
+            />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="img\Concert Banner 2.png" alt="image 2" />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="img\Concert Banner 3.png" alt="image 3" />
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <img src="img\Concert Banner 4.png" alt="image 4" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- END BANNER SLIDER -->
+
+    <!-- Search Concert -->
+    <section id="search-concert" style="color: #2d2b2b">
+      <div class="container">
+        <h2 class="my-4 text-white">Pencarian Konser</h2>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="artis" class="text-white">Artis</label>
+            <input
+              type="text"
+              class="form-control"
+              id="artis"
+              placeholder="Masukkan nama artis"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="kota" class="text-white">Kota</label>
+            <<input
+              type="text"
+              class="form-control"
+              id="kota"
+              placeholder="Masukkan nama kota"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="tanggal" class="text-white">Tanggal</label>
+            <input type="date" class="form-control" id="tanggal" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="genre" class="text-white">Genre Musik</label>
+            <div class="custom-select-wrapper">
+              <select class="custom-select" id="genre">
+                <option value="">Pilih Genre</option>
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="jazz">Jazz</option>
+                <option value="hiphop">Hip Hop</option>
+                <option value="klasik">Klasik</option>
+                <option value="reggae">Reggae</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn btn-primary btn-lg text-uppercase"
+          onchange="tampilkan()"
+        >
+          Cari Konser
+        </button>
+      </div>
+    </section>
+
+    <!-- Konser Populer -->
+    <div id="konser">
+      <section id="popular-concerts">
+        <div class="container my-4">
+          <h2 class="my-4" style="color: black">Konser Populer</h2>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/300/200?random=1"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Konser Rock</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    pellentesque purus at bibendum rhoncus. In nec felis
+                    blandit, efficitur neque vel, sodales arcu.
+                  </p>
+                  <a href="#" class="btn-KP">Beli Tiket</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/300/200?random=2"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="d-none deskripsi">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Dolore et placeat provident quis, nihil atque aperiam debitis
+                  hic reprehenderit consectetur molestiae rem aliquam magni
+                  perspiciatis, amet deleniti veritatis. Dicta nisi at beatae
+                  aspernatur officia ullam, ipsa voluptate vel obcaecati
+                  aperiam?
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Konser Pop</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    pellentesque purus at bibendum rhoncus. In nec felis
+                    blandit, efficitur neque vel, sodales arcu.
+                  </p>
+                  <a href="#" class="btn-KP">Beli Tiket</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/300/200?random=3"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Konser Jazz</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    pellentesque purus at bibendum rhoncus. In nec felis
+                    blandit, efficitur neque vel, sodales arcu.
+                  </p>
+                  <a href="#" class="btn-KP">Beli Tiket</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/300/200?random=4"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Konser Hip Hop</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    pellentesque purus at bibendum rhoncus. In nec felis
+                    blandit, efficitur neque vel, sodales arcu.
+                  </p>
+                  <a href="#" class="btn-KP">Beli Tiket</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/300/200?random=5"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Konser Klasik</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    pellentesque purus at bibendum rhoncus. In nec felis
+                    blandit, efficitur neque vel, sodales arcu.
+                  </p>
+                  <a href="#" class="btn-KP">Beli Tiket</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/300/200?random=6"
+                  class="card-img-top"
+                  alt="..."
+                />
+
+                <div class="card-body">
+                  <h5 class="card-title">Konser Reggae</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    pellentesque purus at bibendum rhoncus. In nec felis
+                    blandit, efficitur neque vel, sodales arcu.
+                  </p>
+                  <a href="#" class="btn-KP">Beli Tiket</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- END  -->
+
+    <!-- Start Testimonials Section -->
+    <div id="Testi">
+      <section
+        class="testimonials"
+        style="padding-bottom: 50px; color: #1a1a1a"
+      >
+        <div class="container">
+          <h2 style="text-align: center; color: white">Apa Kata Mereka?</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="testimonial">
+                <div class="testimonial-image">
+                  <img src="img/FOTO FORMAL BACKGROUND PUTIH.png" alt="" />
+                </div>
+                <div class="testimonial-content">
+                  <p>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum."
+                  </p>
+                  <div class="testimonial-meta">- Rendi Ganteng -</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial">
+                <div class="testimonial-image">
+                  <img src="img/FOTO FORMAL BACKGROUND PUTIH.png" alt="" />
+                </div>
+                <div class="testimonial-content">
+                  <p>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum."
+                  </p>
+                  <div class="testimonial-meta">- Rendi Ganteng -</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial">
+                <div class="testimonial-image">
+                  <img src="img/FOTO FORMAL BACKGROUND PUTIH.png" alt="" />
+                </div>
+                <div class="testimonial-content">
+                  <p>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum."
+                  </p>
+                  <div class="testimonial-meta">- Rendi Ganteng -</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End Testimonials Section -->
+    <section id="contact" style="background-color: #fff; padding: 50px 0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2
+              style="
+                margin-bottom: 20px;
+                font-size: 36px;
+                font-weight: bold;
+                color: #2c3e50;
+                text-shadow: 1px 1px #ddd;
+              "
+            >
+              Need Something?
+            </h2>
+            <hr class="star-primary" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <form id="contactForm">
+              <div class="form-group">
+                <label
+                  style="font-size: 1.2rem; font-weight: 500; color: #2c3e50"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control neon-border-gold"
+                  placeholder="Name"
+                  id="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  style="font-size: 1.2rem; font-weight: 500; color: #2c3e50"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  class="form-control neon-border-gold"
+                  placeholder="Email Address"
+                  id="email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  style="font-size: 1.2rem; font-weight: 500; color: #2c3e50"
+                  >Phone Number</label
+                >
+                <input
+                  type="tel"
+                  class="form-control neon-border-gold"
+                  placeholder="Phone Number"
+                  id="phone"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  style="font-size: 1.2rem; font-weight: 500; color: #2c3e50"
+                  >Message</label
+                >
+                <textarea
+                  rows="5"
+                  class="form-control neon-border-gold"
+                  placeholder="Message"
+                  id="message"
+                  required
+                ></textarea>
+              </div>
+              <div id="success"></div>
+              <button
+                id="submit-btn"
+                class="btn btn-primary btn-xl text-uppercase"
+                type="submit"
+                style="
+                  background-color: #000;
+                  color: #fff;
+                  border-radius: 30px;
+                  border: none;
+                  padding: 10px 40px;
+                  font-size: 18px;
+                  text-transform: uppercase;
+                  letter-spacing: 2px;
+                  cursor: pointer;
+                  transition: all 0.3s;
+                "
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const form = document.getElementById("form");
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const messageInput = document.getElementById("message");
+      const successMsg = document.getElementById("success");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = {
+          name: nameInput.value,
+          email: emailInput.value,
+          message: messageInput.value,
+        };
+        console.log(formData);
+
+        // Simulate a successful form submission
+        successMsg.innerText = "Thank you for your message!";
+        form.reset();
+      });
+    </script>
+
+    <!-- Footer links -->
+    <div id="Register">
+      <div class="Register">
+        <ul class="list-unstyled list-inline text-center py-2">
+          <li class="list-inline-item">
+            <h5 class="mb-1">Register for free</h5>
+          </li>
+          <li class="list-inline-item">
+            <a href="#!" class="btn btn-primary btn-rounded">Sign up!</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Call to action -->
+    <!-- BAR BAWAH -->
+    <section class="navbar-bottom">
+      <div class="row-navbar-bottom">
+        <h6 style="cursor: pointer">
+          <a href="refund policy.html" style="color: black"> Refund Policy</a>
+        </h6>
+        <hr size="1px" width="250px" align="left" color="black" />
+        <h6 style="cursor: pointer">
+          <a href="how to get a ticket.html" style="color: black"
+            >How To Get a Ticker Concert</a
+          >
+        </h6>
+        <hr size="1px" width="250px" align="left" color="black" />
+        <h6 style="cursor: pointer">
+          <a href="faq.html" style="color: black">FAQ</a>
+        </h6>
+        <hr size="1px" width="250px" align="left" color="black" />
+        <h6 style="cursor: pointer">
+          <a href="payment.html" style="color: black">Payment Confirmation</a>
+        </h6>
+        <hr size="1px" width="250px" align="left" color="black" />
+      </div>
+      <div class="content-navbar-bottom">
+        <h5>RK Concert</h5>
+        <h5>Find us On</h5>
+        <br />
+        <div class="icon-navbar-bottom">
+          <a href="#"
+            ><i class="fa-brands fa-twitter" style="color: whitesmoke"></i>
+          </a>
+          <a href="#"
+            ><i class="fa-brands fa-instagram" style="color: whitesmoke"></i>
+          </a>
+          <a href="#"
+            ><i class="fa-brands fa-whatsapp" style="color: whitesmoke"></i>
+          </a>
+          <a href="#"
+            ><i class="fa-brands fa-facebook" style="color: whitesmoke"></i>
+          </a>
+          <a href="#"
+            ><i class="fa-brands fa-facebook" style="color: whitesmoke"></i>
+          </a>
+          <a href="#"
+            ><i class="fa-brands fa-facebook" style="color: whitesmoke"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- End Bar Bawah -->
+
+    <hr />
+    <!-- Footer Links -->
+    <div class="container-fluid text-center">
+      <p>
+        Copyright © by
+        <a href="https://www.instagram.com/rendypancaa">Rendi Panca</a> 2023
+        <br />
+        All rights reserved.
+      </p>
+    </div>
+
+    <!-- End of Page Wrapper -->
+    <!-- Bootstrap core JavaScript -->
+    <script>
+      const togglebtn = document.querySelector(".toggle_btn");
+      const togglebtnicon = document.querySelector(".toggle_btn i");
+      const dropdownmenu = document.querySelector(".dropdown_menu");
+
+      togglebtn.onclick = function () {
+        dropdownmenu.classList.toggle("open");
+        const isopen = dropdownmenu.classList.contains("open");
+
+        togglebtnicon.classList = isopen
+          ? "fa-solid fa-xmark"
+          : "fa-solid fa-bars";
+      };
+    </script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+    <!-- JQuery -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+
+    <!-- Slick JS -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <!-- Script Form Login dan Register -->
+    <script src="scriptLOGINREGISTER.js"></script>
+    <script src="js\popper.min.js"></script>
+    <script src="js\bootstrap.min.js"></script>
+
+    <!-- Our Script -->
+    <script>
+      $(document).ready(function () {
+        console.log("Im ready");
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".slider").slick({
+          autoplay: true,
+          autoplaySpeed: 10000,
+          dots: true,
+          fade: true,
+        });
+      });
+    </script>
+  </body>
+</html>
